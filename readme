@@ -1,6 +1,6 @@
-🗂️ Gerenciador de Tarefas - Kanban;
+Gerenciador de Tarefas - Kanban;
 
-📖 Sobre o Projeto
+Sobre o Projeto
 
 Este projeto foi desenvolvido como parte de um desafio acadêmico, onde o objetivo é criar uma aplicação web de gerenciamento de tarefas no formato To Do List (Kanban).
 
@@ -14,7 +14,7 @@ Pronto
 
 O sistema foi construído utilizando apenas HTML, CSS e JavaScript puro, sem dependências externas, podendo ser executado diretamente no navegador.
 
-🎯 Objetivo
+Objetivo
 
 A aplicação visa simular o funcionamento de um Kanban digital, promovendo:
 
@@ -24,16 +24,16 @@ Organização visual do fluxo de trabalho;
 
 Gestão simples de prioridades e status.
 
-⚙️ Funcionalidades
+Funcionalidades
 
-✅ Cadastro de usuários (nome e e-mail);
-✅ Cadastro de tarefas (descrição, setor, prioridade e data automática);
-✅ Organização das tarefas em três colunas (A Fazer, Fazendo, Pronto);
-✅ Alteração de status e prioridade diretamente no quadro;
-✅ Identificação visual das prioridades com cores diferentes;
-✅ Validação para que todos os campos sejam obrigatórios.
+Cadastro de usuários (nome e e-mail);
+Cadastro de tarefas (descrição, setor, prioridade e data automática);
+Organização das tarefas em três colunas (A Fazer, Fazendo, Pronto);
+Alteração de status e prioridade diretamente no quadro;
+Identificação visual das prioridades com cores diferentes;
+Validação para que todos os campos sejam obrigatórios.
 
-🧾 Estrutura de Dados
+Estrutura de Dados
 Usuário
 Campo	Tipo	Descrição
 id	number	Identificador único do usuário
@@ -49,7 +49,7 @@ prioridade	string	Nível de prioridade (baixa, média, alta)
 dataCadastro	string	Data de criação da tarefa
 status	string	Etapa da tarefa (aFazer, fazendo, pronto)
 
-🧠 Lógica de Funcionamento
+Lógica de Funcionamento
 
 O usuário preenche o formulário com seus dados e os detalhes da tarefa;
 
@@ -61,15 +61,15 @@ O usuário pode alterar o status e a prioridade em tempo real;
 
 O quadro é atualizado automaticamente, garantindo visualização imediata.
 
-🖥️ Tecnologias Utilizadas
+Tecnologias Utilizadas
 
-HTML5 – Estrutura da página
+HTML5 Estrutura da página
 
-CSS3 – Estilização e cores de prioridade
+CSS3 Estilização e cores de prioridade
 
-JavaScript (ES6) – Lógica de cadastro e gerenciamento das tarefas
+JavaScript (ES6) Lógica de cadastro e gerenciamento das tarefas
 
-🚀 Como Executar o Projeto
+Como Executar o Projeto
 
 Baixe ou clone este repositório:
 
@@ -80,7 +80,7 @@ Abra o arquivo index.html em qualquer navegador.
 
 O sistema estará pronto para uso, sem necessidade de instalação ou servidor.
 
-🧩 Exemplo de Uso
+Exemplo de Uso
 
 Preencha os campos do formulário: nome, e-mail, descrição, setor e prioridade;
 
