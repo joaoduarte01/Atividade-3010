@@ -1,0 +1,48 @@
+  body {
+    font-family: Arial, sans-serif;
+    background: #f6f7fb;
+    margin: 0;
+    padding: 20px;
+  }
+  h1 { text-align: center; color: #333; }
+  form {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  input, select, button {
+    margin: 5px;
+    padding: 8px;
+  }
+  .kanban {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+  }
+  .coluna {
+    background: #fff;
+    flex: 1;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .coluna h2 {
+    text-align: center;
+    color: #444;
+  }
+  .tarefa {
+    background: #e9eefb;
+    border-left: 5px solid #007bff;
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  .alta { border-color: #dc3545; }
+  .media { border-color: #ffc107; }
+  .baixa { border-color: #28a745; }
+  .tarefa select {
+    width: 100%;
+    margin-top: 5px;
+  }
