@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerenciador de Tarefas - Kanban</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Gerenciador de Tarefas - Kanban</h1>
+
+<form id="formTarefa">
+  <input type="text" id="nomeUsuario" placeholder="Nome do Usuário" required>
+  <input type="email" id="emailUsuario" placeholder="E-mail do Usuário" required>
+  <input type="text" id="descricao" placeholder="Descrição da Tarefa" required>
+  <input type="text" id="setor" placeholder="Nome do Setor" required>
+  <select id="prioridade" required>
+    <option value="">Prioridade</option>
+    <option value="baixa">Baixa</option>
+    <option value="media">Média</option>
+    <option value="alta">Alta</option>
+  </select>
+  <button type="submit">Adicionar Tarefa</button>
+</form>
+
+<div class="kanban">
+  <div class="coluna" id="aFazer">
+    <h2>A Fazer</h2>
+  </div>
+  <div class="coluna" id="fazendo">
+    <h2>Fazendo</h2>
+  </div>
+  <div class="coluna" id="pronto">
+    <h2>Pronto</h2>
+  </div>
+</div>
+
+<script>
+  const tarefas = [];
+  const usuarios = [];
+
+  document.getElementById("formTarefa").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const nomeUsuario = document.getElementById("nomeUsuario").value.trim();
+    const emailUsuario = document.getElementById("emailUsuario").value.trim();
+    const descricao = document.getElementById("descricao").value.trim();
+    const setor = document.getElementById("setor").value.trim();
+    const prioridade = document.getElementById("prioridade").value;
+
+    if (!nomeUsuario || !emailUsuario || !descricao || !setor || !prioridade) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    let usuario = usuarios.find(u => u.email === emailUsuario);
+    if (!usuario) {
+      usuario = { id: usuarios.length + 1, nome: nomeUsuario, email: emailUsuario };
+      usuarios.push(usuario);
+    }
+
+    const tarefa = {
+      idTarefa: tarefas.length + 1,
+      idUsuario: usuario.id,
+      descricao,
+      setor,
+      prioridade,
+      data: new Date().toLocaleDateString("pt-BR"),
+      status: "aFazer"
+    };
+
+    tarefas.push(tarefa);
+    renderizar();
+    e.target.reset();
+  });
+
+  function renderizar() {
+    document.getElementById("aFazer").innerHTML = "<h2>A Fazer</h2>";
+    document.getElementById("fazendo").innerHTML = "<h2>Fazendo</h2>";
+    document.getElementById("pronto").innerHTML = "<h2>Pronto</h2>";
+
+    tarefas.forEach(t => {
+      const div = document.createElement("div");
+      div.className = `tarefa ${t.prioridade}`;
+      div.innerHTML = `
+        <strong>${t.descricao}</strong><br>
+        Setor: ${t.setor}<br>
+        Prioridade: ${t.prioridade.toUpperCase()}<br>
+        Data: ${t.data}<br>
+        <select onchange="atualizar(${t.idTarefa}, this)">
+          <option value="aFazer" ${t.status === "aFazer" ? "selected" : ""}>A Fazer</option>
+          <option value="fazendo" ${t.status === "fazendo" ? "selected" : ""}>Fazendo</option>
+          <option value="pronto" ${t.status === "pronto" ? "selected" : ""}>Pronto</option>
+        </select>
+        <select onchange="mudarPrioridade(${t.idTarefa}, this)">
+          <option value="baixa" ${t.prioridade === "baixa" ? "selected" : ""}>Baixa</option>
+          <option value="media" ${t.prioridade === "media" ? "selected" : ""}>Média</option>
+          <option value="alta" ${t.prioridade === "alta" ? "selected" : ""}>Alta</option>
+        </select>
+      `;
+
+      document.getElementById(t.status).appendChild(div);
+    });
+  }
+
+  function atualizar(id, select) {
+    const tarefa = tarefas.find(t => t.idTarefa === id);
+    tarefa.status = select.value;
+    renderizar();
+  }
+
+  function mudarPrioridade(id, select) {
+    const tarefa = tarefas.find(t => t.idTarefa === id);
+    tarefa.prioridade = select.value;
+    renderizar();
+  }
+</script>
+</body>
+</html>
