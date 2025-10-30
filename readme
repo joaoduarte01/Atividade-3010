@@ -1,0 +1,99 @@
+🗂️ Gerenciador de Tarefas - Kanban;
+
+📖 Sobre o Projeto
+
+Este projeto foi desenvolvido como parte de um desafio acadêmico, onde o objetivo é criar uma aplicação web de gerenciamento de tarefas no formato To Do List (Kanban).
+
+A aplicação permite cadastrar usuários e tarefas, definir prioridades, setores, status e datas, além de visualizar todas as tarefas em um painel dividido em três colunas:
+
+A Fazer
+
+Fazendo
+
+Pronto
+
+O sistema foi construído utilizando apenas HTML, CSS e JavaScript puro, sem dependências externas, podendo ser executado diretamente no navegador.
+
+🎯 Objetivo
+
+A aplicação visa simular o funcionamento de um Kanban digital, promovendo:
+
+Transparência das tarefas entre setores;
+
+Organização visual do fluxo de trabalho;
+
+Gestão simples de prioridades e status.
+
+⚙️ Funcionalidades
+
+✅ Cadastro de usuários (nome e e-mail);
+✅ Cadastro de tarefas (descrição, setor, prioridade e data automática);
+✅ Organização das tarefas em três colunas (A Fazer, Fazendo, Pronto);
+✅ Alteração de status e prioridade diretamente no quadro;
+✅ Identificação visual das prioridades com cores diferentes;
+✅ Validação para que todos os campos sejam obrigatórios.
+
+🧾 Estrutura de Dados
+Usuário
+Campo	Tipo	Descrição
+id	number	Identificador único do usuário
+nome	string	Nome do usuário responsável
+email	string	E-mail do usuário
+Tarefa
+Campo	Tipo	Descrição
+idTarefa	number	Identificador único da tarefa
+idUsuario	number	ID do usuário responsável
+descrição	string	Detalhamento da tarefa
+setor	string	Setor responsável
+prioridade	string	Nível de prioridade (baixa, média, alta)
+dataCadastro	string	Data de criação da tarefa
+status	string	Etapa da tarefa (aFazer, fazendo, pronto)
+
+🧠 Lógica de Funcionamento
+
+O usuário preenche o formulário com seus dados e os detalhes da tarefa;
+
+A tarefa é automaticamente cadastrada com status “A Fazer”;
+
+No quadro Kanban, cada tarefa aparece na coluna correspondente ao seu status;
+
+O usuário pode alterar o status e a prioridade em tempo real;
+
+O quadro é atualizado automaticamente, garantindo visualização imediata.
+
+🖥️ Tecnologias Utilizadas
+
+HTML5 – Estrutura da página
+
+CSS3 – Estilização e cores de prioridade
+
+JavaScript (ES6) – Lógica de cadastro e gerenciamento das tarefas
+
+🚀 Como Executar o Projeto
+
+Baixe ou clone este repositório:
+
+git clone https://github.com/seuusuario/kanban-tarefas.git
+
+
+Abra o arquivo index.html em qualquer navegador.
+
+O sistema estará pronto para uso, sem necessidade de instalação ou servidor.
+
+🧩 Exemplo de Uso
+
+Preencha os campos do formulário: nome, e-mail, descrição, setor e prioridade;
+
+Clique em “Adicionar Tarefa”;
+
+Veja a tarefa aparecer na coluna A Fazer;
+
+Use os menus suspensos para mudar status e prioridade;
+
+A tarefa mudará automaticamente de coluna e cor.
+
+🎨 Legenda de Prioridades
+Prioridade	Cor	Significado
+Baixa	Verde	Tarefas simples
+Média	Amarelo	Tarefas moderadas
+Alta	Vermelho	Tarefas urgentes
