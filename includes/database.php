@@ -1,16 +1,36 @@
 <?php
-$host = 'localhost';
-$dbname = 'kanban_sistema';
-$username = 'root';
-// Tente estas senhas comuns no XAMPP
-$password = ''; // Senha vazia (mais comum)
-// $password = 'root'; // Alternativa comum
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // echo "Conexão bem-sucedida!"; // Descomente para testar
-} catch(PDOException $e) {
-    die("Erro na conexão: " . $e->getMessage());
+function conectarBanco() {
+    $host = 'localhost';
+    $dbname = 'kanban_sistema';
+    
+    // Lista de credenciais para tentar
+    $credenciais = [
+        ['root', ''],      // Sem senha
+        ['root', 'root'],  // Senha: root
+        ['root', 'password'], // Senha: password
+    ];
+    
+    foreach ($credenciais as $credencial) {
+        $username = $credencial[0];
+        $password = $credencial[1];
+        
+        try {
+            $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo "<!-- Conexão bem-sucedida com usuário: $username -->";
+            return $pdo;
+        } catch(PDOException $e) {
+            // Continua para a próxima tentativa
+            continue;
+        }
+    }
+    
+    // Se nenhuma conexão funcionou
+    die("Erro: Não foi possível conectar ao MySQL. Verifique se:<br>
+         1. O MySQL está rodando no XAMPP<br>
+         2. As credenciais estão corretas<br>
+         3. O banco 'kanban_sistema' existe");
 }
+
+$pdo = conectarBanco();
 ?>
