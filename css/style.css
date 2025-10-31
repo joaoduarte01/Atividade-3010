@@ -1,5 +1,3 @@
-/* ===== RESET BÁSICO ===== */
-/* Remove margens e padding padrão de todos os elementos */
 * {
     margin: 0;
     padding: 0;
@@ -11,9 +9,8 @@ body {
     line-height: 1.5;
 }
 
-/* ===== CABEÇALHO E MENU ===== */
 .navbar {
-    background: #2c3e50; /* Azul escuro */
+    background: #2c3e50;
     color: white;
     padding: 15px 0;
 }
@@ -46,10 +43,9 @@ body {
 }
 
 .nav-menu a:hover {
-    background-color: #34495e; /* Azul um pouco mais claro */
+    background-color: #34495e;
 }
 
-/* ===== LAYOUT PRINCIPAL ===== */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -65,7 +61,6 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* ===== FORMULÁRIOS ===== */
 .form-group {
     margin-bottom: 15px;
 }
@@ -84,7 +79,6 @@ body {
     font-size: 16px;
 }
 
-/* ===== BOTÕES ===== */
 .btn {
     padding: 10px 20px;
     border: none;
@@ -96,16 +90,15 @@ body {
     color: white;
 }
 
-.btn-primary { background: #3498db; } /* Azul */
-.btn-success { background: #27ae60; } /* Verde */
-.btn-danger  { background: #e74c3c; } /* Vermelho */
-.btn-warning { background: #f39c12; } /* Laranja */
+.btn-primary { background: #3498db; }
+.btn-success { background: #27ae60; }
+.btn-danger  { background: #e74c3c; }
+.btn-warning { background: #f39c12; }
 
 .btn:hover {
-    opacity: 0.9; /* Efeito simples ao passar o mouse */
+    opacity: 0.9;
 }
 
-/* ===== MENSAGENS DE ALERTA ===== */
 .alert {
     padding: 15px;
     border-radius: 4px;
@@ -124,7 +117,6 @@ body {
     color: #721c24;
 }
 
-/* ===== KANBAN - QUADRO DE TAREFAS ===== */
 .kanban-board {
     display: flex;
     gap: 15px;
@@ -146,12 +138,10 @@ body {
     border-bottom: 2px solid #bdc3c7;
 }
 
-/* Cores das colunas */
-.column-a-fazer { border-top: 4px solid #e74c3c; }  /* Vermelho */
-.column-fazendo { border-top: 4px solid #f39c12; } /* Laranja */
-.column-pronto  { border-top: 4px solid #27ae60; } /* Verde */
+.column-a-fazer { border-top: 4px solid #e74c3c; }
+.column-fazendo { border-top: 4px solid #f39c12; }
+.column-pronto  { border-top: 4px solid #27ae60; }
 
-/* ===== CARDS DE TAREFA ===== */
 .tarefa-card {
     background: white;
     border-radius: 6px;
@@ -160,10 +150,9 @@ body {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* Cores da prioridade (borda esquerda) */
-.tarefa-baixa  { border-left: 4px solid #27ae60; } /* Verde */
-.tarefa-media  { border-left: 4px solid #f39c12; } /* Laranja */
-.tarefa-alta   { border-left: 4px solid #e74c3c; } /* Vermelho */
+.tarefa-baixa  { border-left: 4px solid #27ae60; }
+.tarefa-media  { border-left: 4px solid #f39c12; }
+.tarefa-alta   { border-left: 4px solid #e74c3c; }
 
 .tarefa-header {
     display: flex;
@@ -178,7 +167,6 @@ body {
     font-weight: bold;
 }
 
-/* Cores dos badges de prioridade */
 .prioridade-baixa  { background: #d5f4e6; color: #27ae60; }
 .prioridade-media  { background: #fdebd0; color: #f39c12; }
 .prioridade-alta   { background: #fadbd8; color: #e74c3c; }
@@ -202,7 +190,6 @@ body {
     margin-top: 8px;
 }
 
-/* ===== RODAPÉ ===== */
 footer {
     background: #2c3e50;
     color: white;
@@ -211,7 +198,6 @@ footer {
     margin-top: 30px;
 }
 
-/* ===== TABELAS ===== */
 .table {
     width: 100%;
     border-collapse: collapse;
@@ -229,10 +215,9 @@ footer {
     font-weight: bold;
 }
 
-/* ===== RESPONSIVO - PARA CELULAR ===== */
 @media (max-width: 768px) {
     .kanban-board {
-        flex-direction: column; /* Colunas viram linhas no celular */
+        flex-direction: column;
     }
     
     .nav-container {

@@ -5,7 +5,6 @@ include 'includes/database.php';
 $mensagem = '';
 $tipo_mensagem = '';
 
-// Processar exclusão de tarefa
 if (isset($_GET['excluir'])) {
     $tarefa_id = $_GET['excluir'];
     
@@ -21,7 +20,6 @@ if (isset($_GET['excluir'])) {
             $tipo_mensagem = 'danger';
         }
     } else {
-        // Mostrar confirmação
         echo "<script>
             if (confirm('Tem certeza que deseja excluir esta tarefa?')) {
                 window.location.href = 'gerenciar_tarefas.php?excluir=$tarefa_id&confirmar=true';
@@ -32,7 +30,6 @@ if (isset($_GET['excluir'])) {
     }
 }
 
-// Processar atualização de status
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['atualizar_status'])) {
     $tarefa_id = $_POST['tarefa_id'];
     $novo_status = $_POST['novo_status'];
@@ -49,7 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['atualizar_status'])) {
     }
 }
 
-// Buscar todas as tarefas com informações do usuário
 $tarefas = $pdo->query("
     SELECT t.*, u.nome as usuario_nome 
     FROM tarefas t 
@@ -57,7 +53,6 @@ $tarefas = $pdo->query("
     ORDER BY t.data_cadastro DESC
 ")->fetchAll(PDO::FETCH_ASSOC);
 
-// Separar tarefas por status
 $tarefas_a_fazer = array_filter($tarefas, function($tarefa) {
     return $tarefa['status'] == 'a_fazer';
 });
@@ -82,7 +77,6 @@ $tarefas_pronto = array_filter($tarefas, function($tarefa) {
 </div>
 
 <div class="kanban-board">
-    <!-- Coluna A Fazer -->
     <div class="kanban-column column-a-fazer">
         <h3>A Fazer</h3>
         <?php foreach ($tarefas_a_fazer as $tarefa): ?>
@@ -115,7 +109,6 @@ $tarefas_pronto = array_filter($tarefas, function($tarefa) {
         <?php endforeach; ?>
     </div>
     
-    <!-- Coluna Fazendo -->
     <div class="kanban-column column-fazendo">
         <h3>Fazendo</h3>
         <?php foreach ($tarefas_fazendo as $tarefa): ?>
@@ -148,7 +141,6 @@ $tarefas_pronto = array_filter($tarefas, function($tarefa) {
         <?php endforeach; ?>
     </div>
     
-    <!-- Coluna Pronto -->
     <div class="kanban-column column-pronto">
         <h3>Pronto</h3>
         <?php foreach ($tarefas_pronto as $tarefa): ?>

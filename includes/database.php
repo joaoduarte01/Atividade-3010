@@ -3,11 +3,10 @@ function conectarBanco() {
     $host = 'localhost';
     $dbname = 'kanban_sistema';
     
-    // Lista de credenciais para tentar
     $credenciais = [
-        ['root', ''],      // Sem senha
-        ['root', 'root'],  // Senha: root
-        ['root', 'password'], // Senha: password
+        ['root', ''],      
+        ['root', 'root'],  
+        ['root', 'password'], 
     ];
     
     foreach ($credenciais as $credencial) {
@@ -20,12 +19,10 @@ function conectarBanco() {
             echo "<!-- Conexão bem-sucedida com usuário: $username -->";
             return $pdo;
         } catch(PDOException $e) {
-            // Continua para a próxima tentativa
             continue;
         }
     }
     
-    // Se nenhuma conexão funcionou
     die("Erro: Não foi possível conectar ao MySQL. Verifique se:<br>
          1. O MySQL está rodando no XAMPP<br>
          2. As credenciais estão corretas<br>

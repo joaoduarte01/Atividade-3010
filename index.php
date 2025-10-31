@@ -11,7 +11,6 @@ include 'includes/header.php';
         <?php
         include 'includes/database.php';
         
-        // Contar tarefas por status
         $stmt = $pdo->query("SELECT status, COUNT(*) as total FROM tarefas GROUP BY status");
         $stats = $stmt->fetchAll(PDO::FETCH_ASSOC);
         

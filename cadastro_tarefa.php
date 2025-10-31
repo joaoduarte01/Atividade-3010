@@ -5,7 +5,6 @@ include 'includes/database.php';
 $mensagem = '';
 $tipo_mensagem = '';
 
-// Buscar usuários para o select
 $usuarios = $pdo->query("SELECT id, nome FROM usuarios ORDER BY nome")->fetchAll(PDO::FETCH_ASSOC);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -14,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $setor = trim($_POST['setor']);
     $prioridade = $_POST['prioridade'];
     
-    // Validação
     if (empty($descricao) || empty($setor) || empty($usuario_id)) {
         $mensagem = 'Todos os campos são obrigatórios!';
         $tipo_mensagem = 'danger';
@@ -26,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $mensagem = 'Tarefa cadastrada com sucesso!';
             $tipo_mensagem = 'success';
             
-            // Limpar o formulário
             $_POST = array();
         } catch (PDOException $e) {
             $mensagem = 'Erro ao cadastrar tarefa: ' . $e->getMessage();

@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = trim($_POST['nome']);
     $email = trim($_POST['email']);
     
-    // Validação básica
     if (empty($nome) || empty($email)) {
         $mensagem = 'Todos os campos são obrigatórios!';
         $tipo_mensagem = 'danger';
@@ -18,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $tipo_mensagem = 'danger';
     } else {
         try {
-            // Verificar se o e-mail já existe
             $stmt = $pdo->prepare("SELECT id FROM usuarios WHERE email = ?");
             $stmt->execute([$email]);
             
@@ -26,14 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $mensagem = 'Este e-mail já está cadastrado!';
                 $tipo_mensagem = 'danger';
             } else {
-                // Inserir novo usuário
                 $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email) VALUES (?, ?)");
                 $stmt->execute([$nome, $email]);
                 
                 $mensagem = 'Cadastro concluído com sucesso!';
                 $tipo_mensagem = 'success';
                 
-                // Limpar o formulário
                 $_POST = array();
             }
         } catch (PDOException $e) {
